@@ -7,6 +7,80 @@
     <link rel="stylesheet" href="feedback.css">
 </head>
 <body>
-    
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                BBDU PYQs
+            </div>
+            <div class="links">
+                <span class="link"><a href="home.html">Home</a></span>
+                <span class="link"><a href="#">Upload</a></span>
+                <span class="link" id="feedback"><a href="feedback.html">Feedback</a></span>
+                <span class="link"><a href="about.html">About</a></span>
+            </div>
+        </div>
+     </header>
+
+
+
+    <!-- feedback form -->
+
+    <section class="hero">
+
+    <div class="main">
+
+    <div class="heading">
+    <h2 class="feedback-title">We Value Your Feedback</h2>
+    <p class="feedback-description">Your feedback is important to us. Please share your thoughts with us.</p>
+    <h3 class="feedback-title">Help Us Improve BBDU PYQs</h3>
+    <p class="feedback-description">Your feedback helps us make BBDU PYQs better for everyone. Whether you found an issue with a question paper, have a suggestion, or simply want to share your experience, we'd love to hear from you.</p>
+    <h4 class="feedback-title">📚 Question Papers</h4>
+    <p class="feedback-description">Have an idea that could make the website more useful for students? Share it with us.</p>
+    <h4 class="feedback-title"> 🐛 Report an Issue</h4>
+    <p class="feedback-description">Something isn't working properly? Tell us so we can fix it..</p>
+    <h4 class="feedback-title">❤️ Your Opinion Matters</h4>
+    <p class="feedback-description">Every piece of feedback helps us improve the experience for students.</p>
+    </div>
+
+
+    <div class="form">
+    <form action="#" class="feedback-form">
+        <label for="name" class="head-tag">Name</label><br>
+        <input type="text" id="name" name="name" required class="input">
+        <br><br>
+        <label for="email" class="head-tag">Email</label><br>
+        <input type="email" id="email" name="email" required class="input">
+        <br><br>
+
+        <label for="options" class="head-tag">What is your feedback about?</label>
+        <br>
+        <select name="options" id="drop-down">
+            <option value="que-paper">Quesation Paper</option>
+            <option value="search">Search</option>
+            <option value="web-design">Website Design</option>
+            <option value="suggestion">Feature Suggestion</option>
+            <option value="other">Other</option>
+        </select>
+
+        <br><br>
+
+        <label for="feedback-space" class="head-tag">Write it here</label>
+        <br>
+        <input type="text" class="feedback-main-inp">
+
+        <br><br>
+
+        <div class="btn">
+        <button class="submit-btn">Submit</button>
+        </div>
+
+    </form>
+
+    </div>
+    </div>
+
+    </section>
+
 </body>
 </html>
