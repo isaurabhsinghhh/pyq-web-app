@@ -1,138 +1,541 @@
-*{
-    margin: 0%;
-    padding: 0%;
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    background-color: black;
-    color: white;
+html {
+    scroll-behavior: smooth;
 }
 
-.navbar{
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    /* border: 2px solid red; */
-    height: 35px;
-    padding: 2px;
-    background-color: rgb(0, 0, 23);
-}
-
-.logo{
-    margin: 0px 5px;
-    margin-left: 15px;
+body {
+    min-height: 100vh;
+    background: #050505;
+    color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(255, 255, 255) ;;
 }
 
-.links{
-    /* border: 1px solid pink; */
-    align-items: center;
-    margin: 0px 5px;
-    margin-right: 10px;
-    height: 100%;
-    width: 30%;
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+    min-height: 64px;
+    width: 100%;
+
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    font-size: smaller;
+
+    padding: 0 5%;
+
+    background: rgba(5, 5, 10, 0.9);
+
+    border-bottom: 1px solid rgba(255, 0, 200, 0.25);
+
+    backdrop-filter: blur(12px);
+
+    position: relative;
+    z-index: 10;
 }
 
-.link{
-    transition: 0.4s ease;
-    border-bottom: 1px solid transparent;
-    color: white;
+
+/* ================================
+   LOGO
+================================ */
+
+.logo {
+    color: #ffffff;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 8px rgba(255, 0, 200, 0.7),
+        0 0 20px rgba(255, 0, 200, 0.3);
 }
 
-a{
-    color: white;
+
+/* ================================
+   NAVIGATION LINKS
+================================ */
+
+.links {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.link {
+    position: relative;
+
+    padding: 8px 0;
+
+    color: #cccccc;
+
+    font-size: 0.95rem;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.link a {
+    color: inherit;
     text-decoration: none;
 }
 
-#upload{
-    border-bottom: 1px solid rgb(254, 1, 203);
-    font-size: larger;
+.link:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
-.link:hover{
-    transform: scale(1.05);
-    border-bottom: 1px solid rgb(254, 1, 203);
-    /* background-color: rgb(40, 53, 235); */
-    cursor: pointer;
-    /* border: 1px solid rgb(235, 40, 95); */
+
+/* Neon underline */
+
+.link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: #ff00c8;
+
+    box-shadow: 0 0 10px #ff00c8;
+
+    transition: width 0.3s ease;
 }
 
-.hero{
-    /* background-color: rgb(0, 0, 31); */
-    background-image: url(backimg.png);
-    background-size: cover;
-    display: grid;
+.link:hover::after {
+    width: 100%;
+}
+
+
+/* Active page */
+
+#upload {
+    color: #ffffff;
+}
+
+#upload::after {
+    width: 100%;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    min-height: calc(100vh - 64px);
+
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
-    padding: 12%;
+
+    padding: 50px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url("backimg.png");
+
+    background-size: cover;
+    background-position: center;
 }
 
-.main-box{
+
+/* Pink glow */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    top: 5%;
+    left: 5%;
+
+    background: #ff00c8;
+
+    opacity: 0.08;
+
+    filter: blur(110px);
+
+    border-radius: 50%;
+}
+
+
+/* Cyan glow */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    right: 5%;
+    bottom: 5%;
+
+    background: #00ffff;
+
+    opacity: 0.08;
+
+    filter: blur(110px);
+
+    border-radius: 50%;
+}
+
+
+/* ================================
+   MAIN UPLOAD BOX
+================================ */
+
+.main-box {
+    width: min(500px, 95%);
+
     display: flex;
     flex-direction: column;
-    padding: 20px;
+
+    padding: 35px;
+
+    position: relative;
+    z-index: 2;
+
+    background: rgba(10, 10, 15, 0.55);
+
+    border: 1px solid rgba(255, 0, 200, 0.35);
+
+    border-radius: 20px;
+
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25),
-                0 0 0 1px rgba(255, 255, 255, 0.18) inset;
 
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(255, 0, 200, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
-.heading{
-    margin: 5px;
-    padding: 3px;
-    border-bottom: 1px solid white;
-    /* background-color: red; */
+
+.main-box:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(255, 0, 200, 0.6);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(255, 0, 200, 0.12);
 }
 
-.file-input{
-    margin: 5px;
-    padding: 3px;
-    font-size: smaller;
+
+/* ================================
+   HEADING
+================================ */
+
+.heading {
+    margin-bottom: 25px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    color: #dddddd;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
 }
 
-.file-input:hover{
+
+/* h3 inside heading */
+
+.heading h3 {
+    margin-bottom: 5px;
+
+    color: #00ffff;
+
+    font-size: 1.8rem;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+
+/* ================================
+   FILE INPUT
+================================ */
+
+.file-input {
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    padding: 12px;
+
+    color: #cccccc;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    border: 1px dashed rgba(0, 255, 255, 0.5);
+
+    border-radius: 10px;
+
     cursor: pointer;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
 }
 
-.sub-name{
-    margin: 5px;
-    margin-bottom: 0px;
-    padding: 3px;
+
+.file-input:hover {
+    border-color: #00ffff;
+
+    background: rgba(0, 255, 255, 0.04);
 }
 
-.sub-inp{
-    margin: 5px;
-    padding: 3px;
-    background-color: transparent;
-    border-radius: 8px;
-    border: 1px solid rgb(39, 167, 218);
-    color: white;
+
+/* File chooser button */
+
+.file-input::file-selector-button {
+    margin-right: 12px;
+
+    padding: 8px 14px;
+
+    border: 1px solid #00ffff;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #00ffff;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
-.submit-btn{
-    margin: 5px;
-    border-radius: 8px;
+
+.file-input::file-selector-button:hover {
+    background: #00ffff;
+
+    color: #000000;
+}
+
+
+/* ================================
+   SUBJECT LABEL
+================================ */
+
+.sub-name {
+    margin-bottom: 8px;
+
+    color: #bbbbbb;
+
+    font-size: 0.9rem;
+}
+
+
+/* ================================
+   SUBJECT INPUT
+================================ */
+
+.sub-inp {
+    width: 100%;
+
+    height: 48px;
+
+    margin-bottom: 22px;
+
+    padding: 0 15px;
+
+    outline: none;
+
+    color: #ffffff;
+
+    font-size: 1rem;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    border: 1px solid rgba(0, 255, 255, 0.5);
+
+    border-radius: 10px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.sub-inp:focus {
+    border-color: #00ffff;
+
+    box-shadow:
+        0 0 10px rgba(0, 255, 255, 0.3),
+        0 0 25px rgba(0, 255, 255, 0.08);
+}
+
+
+.sub-inp:hover {
+    border-color: #00ffff;
+}
+
+
+/* ================================
+   SUBMIT BUTTON
+================================ */
+
+.submit-btn {
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #ff00c8;
+
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 200, 0.3);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.submit-btn:hover {
+    background: #ff22d0;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(255, 0, 200, 0.6),
+        0 0 40px rgba(255, 0, 200, 0.2);
+}
+
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .links {
+        gap: 15px;
+    }
+
+    .link {
+        font-size: 0.85rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .main-box {
+        padding: 28px;
+    }
+
+    .heading h3 {
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .navbar {
+        min-height: 58px;
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 0.95rem;
+    }
+
+    .links {
+        gap: 9px;
+    }
+
+    .link {
+        font-size: 0.72rem;
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .main-box {
+        padding: 22px;
+
+        border-radius: 16px;
+    }
+
+    .heading h3 {
+        font-size: 1.35rem;
+    }
+
+    .file-input {
+        font-size: 0.8rem;
+    }
+}
+
+.thankMess{
+    color: #f8f8f8;
+}
+
+.thank-message{
+    display: flex;
+    margin: 4px;
     padding: 5px;
-    background-color: rgb(51, 51, 189);
-    border: 1px solid rgb(253, 248, 248);
-    color: rgb(157, 231, 172);
-    font-weight: lighter;
-    transition: 0.4s ease;
-}
-
-.submit-btn:hover{
-    transform: scale(1.05);
-    background-color: rgb(32, 45, 236);
-    cursor: pointer;
-    border: 1px solid rgb(235, 40, 95);
-
+    justify-content: center;
 }
